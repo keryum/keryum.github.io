@@ -1,3 +1,9 @@
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --Red: #7b0000;
+    --Red-dark: #600000;
+}
 * {
     border: 0;
     padding: 0;
@@ -12,31 +18,34 @@ header {
     display: flex;
     justify-content: end;
     height: 60px;
-    background-color: white;
+    background-color: var(--white);
 }
 nav {
     width: 100vw;
-    position: sticky;
+    position: fixed;
     display: flex;
-    background-color: white;
+    background-color: var(--white);
     justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 .title-container {
     display: flex;
     align-items: center;
     height: 100%;
-    background-color: black;
-    flex-grow: 2;
+    background-color: var(--white);
+    justify-content: start;
+}
+.logo-navbar {
+    display: grid;
+    width: 50px;
+    height: 90%;
+    text-decoration: none;
     justify-content: center;
 }
-h1 {
-    display: block;
-    color: white;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: xx-large;
-    font-weight: bolder;
+.logo-keryum {
+    width: 50px;
+    justify-self: center;
 }
 nav ul {
     position: sticky;
@@ -46,26 +55,30 @@ nav ul {
     font-weight: 700;
     padding-right: 15px;
     align-items: center;
-    background-color: white;
+    background-color: var(--white);
 }
-nav ul li {
+.secciones-navbar {
+    padding: 0;
+}
+nav .secciones-navbar li {
     position: sticky;
     display: inline-flex;
     padding: 0 20px;
     height: 60px;
-    align-items: center ;
-    background-color: white;
+    align-items: center;
+    color: #000000;
+    background-color: transparent;
+    text-transform: uppercase;
     text-transform: uppercase;
     transition: .5s ease;
-    animation-direction: alternate;
 }
-nav ul li:nth-last-child(n+5):hover {
-    background-color: black;
-    color: white;
+nav .secciones-navbar li:hover {
+    background-color: #600000;
+    color: var(--white);
 }
-nav ul li img {
+nav .redes-sociales li img {
     width: 32px;
-    background-color: white;
+    padding: 10px;
 }
 main {
     width: 100vw;
@@ -73,7 +86,7 @@ main {
     display: flex;
     justify-content: center;
     grid-template-rows: auto 1fr auto;
-    background-color: rgba(0, 0, 0, 0.986);
+    background-color: #7b0000;
 }
 .ilustraciones {
     display: flex;
@@ -93,4 +106,20 @@ main {
     width: 35vw;
     opacity: 1;
     filter: contrast(120%);
+}
+@media(max-width: 1350px) {
+    nav {
+        justify-content: space-between;
+        margin-right: 16px;
+    }
+    nav .redes-sociales {
+        display: flex;
+        position: fixed;
+        right: -10px;
+        top: 60px;
+        background-color: transparent;
+    }
+    .redes-sociales li {
+        margin-right: 16px;
+    }
 }
