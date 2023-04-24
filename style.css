@@ -27,17 +27,26 @@ nav {
     width: 100vw;
     display: flex;
     background-color: var(--white);
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
+.menu-mobile-icon {
+    display: none;
+    width: 60px;
+    cursor: pointer;
+}
+.menu-redes-icon {
+    display: none;
+    width: 50px;
+    padding-right: 12px;
+    cursor: pointer;
+}
     /* Navbar-left */
-        /* Logo en barra de navegación */
+    /* Logo en barra de navegación */
         .navbar-left {
             display: flex;
             justify-content: space-evenly;
-        }
-        .menu-mobile-icon {
-            display: none;
+            margin-left: 16px;
         }
         .logo-keryum {
             width: 50px;
@@ -47,16 +56,23 @@ nav {
     .navbar-middle {
         display: flex;
     }
+    .navbar-middle ul {
+        display: flex;
+    }
     .navbar-middle ul li {
         display: inline-flex;
         list-style: none;
-        padding: 0 20px;
+        padding: 0 15px;
         height: 60px;
         align-items: center;
         color: #000000;
         background-color: transparent;
+        font-weight: bold;
         text-transform: uppercase;
         transition: .5s ease;
+    }
+    .navbar-middle ul li:nth-last-child(1) {
+        padding-right: 0;
     }
     .navbar-middle ul li:hover {
         background-color: #600000;
@@ -67,8 +83,6 @@ nav {
     .navbar-right {
         display: flex;
     }
-    .navbar-rigt ul {
-    }
     .navbar-right ul li{
         display: inline-flex;
         height: 60px;
@@ -78,6 +92,7 @@ nav {
         transition: .5s ease;
     }
     .redes-sociales {
+        display: flex;
         align-items: center;
     }
     .redes-sociales li img {
@@ -88,23 +103,30 @@ nav {
     /* Navbar-mobile */
     .menu-mobile {
         display: none;
+        position: absolute;
+        font-size: xx-large;
+        font-weight: bold;
+        background: var(--black);
+        padding: 0;
+        color: var(--white);
+        width: 100vw;
+        height: 100vh;
+        padding: 15px;
+        top: 60px;
+        justify-content: center;
+    }
+    .menu-mobile ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
     }
     .menu-mobile ul li{
+        display: inline-flex;
+        height: ;
+        flex-direction: column;
         list-style: none;
     }
-
-/* Estilo listas */
-/* .navbar-middle ul li, .navbar-right ul li {
-    display: flex;
-    list-style: none;
-    height: 60px;
-    font-weight: 700;
-    padding-right: 15px;
-    align-items: center;
-} */
-
-    /* Nabar middle */
-
 
 /* Main content */
 main {
@@ -134,19 +156,39 @@ main {
     opacity: 1;
     filter: contrast(120%);
 } */
-@media(max-width: 1350px) {
+@media(max-width: 1350px) and (min-width: 850px) {
     nav {
-        justify-content: space-between;
+        justify-content: end;
         margin-right: 16px;
     }
-    nav .redes-sociales {
+    .navbar-left {
+        justify-self: flex-start;
+        flex-grow: 2;
+        margin: 0;
+    }
+    nav .navbar-right {
         display: flex;
         position: fixed;
         right: -10px;
         top: 60px;
         background-color: transparent;
-    }
-    .redes-sociales li {
         margin-right: 16px;
+    }
+}
+@media(max-width: 849px) {
+    .menu-mobile {
+        display: block;
+    }
+    .menu-mobile-icon {
+        display: block;
+    }
+    .menu-redes-icon {
+        display: block;
+    }
+    .navbar-right {
+        display: none;
+    }
+    .navbar-middle {
+        display: none;
     }
 }
