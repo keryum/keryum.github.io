@@ -10,9 +10,14 @@
     padding: 0;
     margin: 0;
 }
+.inactive {
+    display:none;
+}
 body {
     display: flex;
     flex-direction: column;
+    padding: 0;
+    background-color: #7b0000;
     font-family: Arial, Helvetica, sans-serif;
 }
 header {
@@ -26,6 +31,7 @@ header {
 nav {
     width: 100vw;
     display: flex;
+    position: fixed;
     background-color: var(--white);
     justify-content: space-between;
     align-items: center;
@@ -38,7 +44,7 @@ nav {
 .menu-redes-icon {
     display: none;
     width: 50px;
-    padding-right: 12px;
+    padding-right: 10px;
     cursor: pointer;
 }
     /* Navbar-left */
@@ -46,10 +52,11 @@ nav {
         .navbar-left {
             display: flex;
             justify-content: space-evenly;
-            margin-left: 16px;
         }
         .logo-keryum {
+            margin-left: 16px;
             width: 50px;
+            justify-self: center;
         }
 
     /* Navbar-middle */
@@ -70,9 +77,6 @@ nav {
         font-weight: bold;
         text-transform: uppercase;
         transition: .5s ease;
-    }
-    .navbar-middle ul li:nth-last-child(1) {
-        padding-right: 0;
     }
     .navbar-middle ul li:hover {
         background-color: #600000;
@@ -102,12 +106,11 @@ nav {
 
     /* Navbar-mobile */
     .menu-mobile {
-        display: none;
-        position: absolute;
+        position: fixed;
         font-size: xx-large;
         font-weight: bold;
         background: var(--black);
-        padding: 0;
+        padding: 0 !important;
         color: var(--white);
         width: 100vw;
         height: 100vh;
@@ -115,26 +118,67 @@ nav {
         top: 60px;
         justify-content: center;
     }
-    .menu-mobile ul {
+    .mobile-menu-sections {
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
+        justify-content: space-between;
+        justify-content: space-around;
+        height: calc(100vh - 60px);
     }
     .menu-mobile ul li{
         display: inline-flex;
-        height: ;
+        height: 50px;
+        width: 100%;
         flex-direction: column;
         list-style: none;
+        text-align: center;
     }
+
+/* menu redes sociales */
+.menu-redes {
+    position: fixed;
+    font-size: xx-large;
+    font-weight: bold;
+    background: var(--Red-dark);
+    padding: 0 !important;
+    width: 100vw;
+    height: 100vh;
+    padding: 15px;
+    top: 60px;
+    justify-content: center;
+}
+.menu-redes-elementos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    justify-content: space-around;
+    height: calc(100vh - 60px);
+}
+.menu-redes ul li{
+    display: inline-flex;
+    height: 100px;
+    width: 100%;
+    flex-direction: column;
+    list-style: none;
+    text-align: center;
+}
+.menu-redes ul li a {
+    display: inline-flex;
+    justify-content: center;
+    height: auto;
+}
+.menu-redes-elementos img {
+    width: 100px;
+}
+
 
 /* Main content */
 main {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
-    grid-template-rows: auto 1fr auto;
     background-color: #7b0000;
 }
 /* .ilustraciones {
@@ -156,28 +200,35 @@ main {
     opacity: 1;
     filter: contrast(120%);
 } */
+@media (min-width: 850px) {
+    .menu-mobile {
+        display: none;
+    }
+    .menu-redes {
+        display: none;
+    }
+}
 @media(max-width: 1350px) and (min-width: 850px) {
     nav {
         justify-content: end;
-        margin-right: 16px;
     }
     .navbar-left {
         justify-self: flex-start;
         flex-grow: 2;
         margin: 0;
     }
-    nav .navbar-right {
+    .navbar-right {
         display: flex;
         position: fixed;
-        right: -10px;
+        margin-right: 0 !important;
         top: 60px;
         background-color: transparent;
         margin-right: 16px;
     }
 }
 @media(max-width: 849px) {
-    .menu-mobile {
-        display: block;
+    .logo-keryum {
+        margin: 0;
     }
     .menu-mobile-icon {
         display: block;
